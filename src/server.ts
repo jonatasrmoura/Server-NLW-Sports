@@ -31,8 +31,7 @@ app.post(`/games/:id/ads`, async (request, response) => {
 app.get(`/games`, async (request, response) => {
   const games = await prisma.game.findMany({
     include: {
-      _count: true,
-      ads: true
+      _count: true
     },
   });
   return response.json(games);
